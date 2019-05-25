@@ -1,6 +1,7 @@
 package elasticsearch
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -16,7 +17,7 @@ type Cluster struct {
 
 // Init initialises an Elasticsearch cluster
 func Init(uri string, port uint16) Cluster {
-	url := strings.Join([]string{uri, string(port)}, ":")
+	url := fmt.Sprintf("%s:%d", uri, port)
 	return (Cluster{URI: uri, Port: port, URL: url})
 }
 
