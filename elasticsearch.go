@@ -39,7 +39,7 @@ func (c *Cluster) Geturl() string {
 func (c *Cluster) buildgetquery(querystring ...string) string {
 	uri := strings.Join(querystring, "/")
 
-	resp, err := http.Get(uri)
+	resp, err := http.Get(strings.Join([]string{c.Geturl(), uri}, "/"))
 	if err != nil {
 		log.Fatal(err)
 	}
