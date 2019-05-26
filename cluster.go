@@ -6,7 +6,7 @@ import (
 
 // Getsettings returns the cluster global settings
 func (c *Cluster) Getsettings() string {
-	return (c.buildgetquery("_settings"))
+	return (c.buildgetquery("_cluster", "settings"))
 }
 
 // Getsetting returns a defined setting
